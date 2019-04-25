@@ -18,7 +18,7 @@ Only what you need to do is to write following:
 
 ```
 module "esc_ec2_cluster_template" {
-  source = "github.com/m3dev/m3-terraform-modules//modules/esc_ec2_cluster_template?ref=1.0.0"
+  source = "github.com/m3dev/m3-terraform-modules//ecs_ec2_cluster_template?ref=495ff58"
 
   // ... set input variables, see `variables.tf` of the module.
 }
@@ -27,4 +27,4 @@ module "esc_ec2_cluster_template" {
 Note that there are some key points in the `source` URL (see [official document for detail](https://www.terraform.io/docs/modules/sources.html)):
 
 - Use double slash (`//`) to split repository URL and path from repository root
-- Use `ref` to specify tag/branch to use
+- Use `ref` to specify tag/branch/revision to use
