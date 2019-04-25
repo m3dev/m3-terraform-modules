@@ -1,7 +1,6 @@
 resource "aws_autoscaling_group" "main" {
   name = "ecs-${var.application_name}"
 
-  launch_configuration = "${aws_launch_configuration.main.name}"
   vpc_zone_identifier  = ["${var.subnet_ids}"]
 
   health_check_type         = "EC2"
@@ -12,6 +11,11 @@ resource "aws_autoscaling_group" "main" {
   min_size         = "${var.autoscaling_min}"
 
   # TODO: initial_lifecycle_hook で autoscaling:EC2_INSTANCE_LAUNCHING を通知する
+
+  launch_template {
+    id = "${aws_launch_template.main.id}"
+    version = "${aws_launch_template.main.latest_version}"
+  }
 
   tag {
     propagate_at_launch = true
