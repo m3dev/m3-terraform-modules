@@ -5,14 +5,15 @@ data "template_cloudinit_config" "main" {
 
   part {
     content_type = "text/x-shellscript"
-    content      = "${data.template_file.cloud_init_script.rendered}"
+    content      = data.template_file.cloud_init_script.rendered
   }
 }
 
 data "template_file" "cloud_init_script" {
-  template = "${file("${path.module}/cloud-init.sh")}"
+  template = file("${path.module}/cloud-init.sh")
 
-  vars {
-    ecs_cluster_id = "${var.ecs_cluster_id}"
+  vars = {
+    ecs_cluster_id = var.ecs_cluster_id
   }
 }
+

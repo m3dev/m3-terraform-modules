@@ -1,5 +1,5 @@
 locals {
-  image_id = "${var.ec2_image_id == "" ? data.aws_ami.ecs-optimized.id : var.ec2_image_id}"
+  image_id = var.ec2_image_id == "" ? data.aws_ami.ecs-optimized.id : var.ec2_image_id
 }
 
 data "aws_ami" "ecs-optimized" {
@@ -14,3 +14,4 @@ data "aws_ami" "ecs-optimized" {
   }
   owners = ["591542846629"] # AWS
 }
+

@@ -1,6 +1,6 @@
 resource "aws_ecr_lifecycle_policy" "untagged" {
-  repository = "${aws_ecr_repository.main.id}"
-  policy = <<EOF
+  repository = aws_ecr_repository.main.id
+  policy     = <<EOF
 {
     "rules": [
         {
@@ -19,4 +19,6 @@ resource "aws_ecr_lifecycle_policy" "untagged" {
     ]
 }
 EOF
+
 }
+

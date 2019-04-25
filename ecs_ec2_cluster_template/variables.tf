@@ -15,12 +15,12 @@ variable "vpc_id" {
 }
 
 variable "subnet_ids" {
-  type        = "list"
+  type        = list(string)
   description = "List of subnet ID to run EC2 instances within it. Those subnets must belong to VPC that indicated by vpc_id."
 }
 
 variable "additional_security_groups" {
-  type        = "list"
+  type        = list(string)
   default     = []
   description = "List of ID of SecurityGroup to attach on the EC2 instances. Note that this module automatically generate one SG in addition (output.container_security_group_id)."
 }
@@ -30,17 +30,12 @@ variable "maintenance_security_group_id" {
 }
 
 variable "maintenance_ingress_tcp_ports" {
-  type = "list"
+  type = list(string)
 
   default = [
     "22",
     "80",
     "443",
-
-    # When we use dynamic port mapping of ECS, container EXPOSE-ed port is mapped to ephemeral port of the host EC2 instance.
-    # Thus allow access to ephemeral ports by default.
-    # See: "hostPort" of https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
-    # Note: /proc/sys/net/ipv4/ip_local_port_range of current ECS optimized AMI is "32768	60999"
     "32768-65535",
   ]
 
@@ -52,16 +47,11 @@ variable "loadbalancer_security_group_id" {
 }
 
 variable "loadbalancer_ingress_tcp_ports" {
-  type = "list"
+  type = list(string)
 
   default = [
     "80",
     "443",
-
-    # When we use dynamic port mapping of ECS, container EXPOSE-ed port is mapped to ephemeral port of the host EC2 instance.
-    # Thus allow access to ephemeral ports by default.
-    # See: "hostPort" of https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
-    # Note: /proc/sys/net/ipv4/ip_local_port_range of current ECS optimized AMI is "32768	60999"
     "32768-65535",
   ]
 
@@ -69,7 +59,7 @@ variable "loadbalancer_ingress_tcp_ports" {
 }
 
 variable "egress_tcp_ports" {
-  type = "list"
+  type = list(string)
 
   default = [
     80,
@@ -125,7 +115,7 @@ variable "autoscaling_cpu_threshold_low" {
 }
 
 variable "autoscaling_scaledown_between_utc" {
-  type    = "list"
+  type    = list(string)
   default = ["", ""]
 
   # Example: [ "0 13 * * *", "0 0 * * 1-5" ]
@@ -141,19 +131,21 @@ This setting is useful to reduce cost of development environment because you can
 Also you can use this setting to reduce cost of production, but don't forget to change autoscaling_scaledown_* settings to keep some instances running.
 Otherwise it makes instance count to zero by default.
 EOF
+
 }
 
 variable "autoscaling_scaledown_max" {
-  default     = 0
+  default = 0
   description = "Max instance count during autoscaling_scaledown_between_utc period."
 }
 
 variable "autoscaling_scaledown_desired_capacity" {
-  default     = 0
+  default = 0
   description = "Instance count during autoscaling_scaledown_between_utc period."
 }
 
 variable "autoscaling_scaledown_min" {
-  default     = 0
+  default = 0
   description = "Minimum instance count during autoscaling_scaledown_between_utc period."
 }
+

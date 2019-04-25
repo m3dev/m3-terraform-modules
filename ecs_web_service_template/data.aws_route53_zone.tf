@@ -4,5 +4,6 @@ locals {
 }
 
 data "aws_route53_zone" "main" {
-  zone_id = "${var.domain_zone_id}"
+  zone_id = var.domain_zone_id
 }
+

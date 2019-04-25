@@ -3,6 +3,7 @@ variable "repository_name" {
 }
 
 variable "untagged_images_expire_days" {
-  default = 14
+  default     = 14
   description = "Automatically delete untagged images (days after push)"
 }
+

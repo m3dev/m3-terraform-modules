@@ -12,13 +12,13 @@ resource "aws_cloudwatch_metric_alarm" "main_cpu_high" {
   period             = "60"
 
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  threshold           = "${var.autoscaling_cpu_threshold_high}"
+  threshold           = var.autoscaling_cpu_threshold_high
 
-  dimensions {
-    AutoScalingGroupName = "${aws_autoscaling_group.main.name}"
+  dimensions = {
+    AutoScalingGroupName = aws_autoscaling_group.main.name
   }
 
-  alarm_actions = ["${aws_autoscaling_policy.main_add_instance.arn}"]
+  alarm_actions = [aws_autoscaling_policy.main_add_instance.arn]
 }
 
 resource "aws_cloudwatch_metric_alarm" "main_cpu_low" {
@@ -32,11 +32,12 @@ resource "aws_cloudwatch_metric_alarm" "main_cpu_low" {
   period             = "300"
 
   comparison_operator = "LessThanThreshold"
-  threshold           = "${var.autoscaling_cpu_threshold_low}"
+  threshold           = var.autoscaling_cpu_threshold_low
 
-  dimensions {
-    AutoScalingGroupName = "${aws_autoscaling_group.main.name}"
+  dimensions = {
+    AutoScalingGroupName = aws_autoscaling_group.main.name
   }
 
-  alarm_actions = ["${aws_autoscaling_policy.main_remove_instance.arn}"]
+  alarm_actions = [aws_autoscaling_policy.main_remove_instance.arn]
 }
+
