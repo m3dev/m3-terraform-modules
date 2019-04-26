@@ -16,7 +16,10 @@ variable "route53_zone_id" {
 }
 
 variable "access_logs_bucket" {
-  description = "Name of S3 bucket to store access logs"
+  description = <<EOS
+Name of S3 bucket to store access logs (you need to create bucket).
+Do not forget to set Bucket Policy to allow object upload from LB: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#access-logging-bucket-permissions .
+EOS
 }
 
 // ------------ Optional config ------------
