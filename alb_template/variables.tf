@@ -26,6 +26,11 @@ variable "idle_timeout" {
   description = "Max idle time of the connection in ALB"
 }
 
+variable "acm_certificate_validation" {
+  default     = true
+  description = "false to disalbe ACM certificate validation"
+}
+
 variable "acm_certificate_alternative_names" {
   type        = list(string)
   default     = []
