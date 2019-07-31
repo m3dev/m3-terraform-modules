@@ -3,7 +3,7 @@ resource "aws_alb_listener_rule" "main" {
 
   listener_arn = element(var.loadbalancer_listener_arns, count.index)
 
-  priority = 1000
+  priority = var.loadbalancer_listener_priority
 
   action {
     type             = "forward"

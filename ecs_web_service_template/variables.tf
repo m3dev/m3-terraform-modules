@@ -78,6 +78,11 @@ variable "loadbalancer_listener_arns_count" {
 description = "Length of loadbalancer_listener_arns. This variable is required with current terraform due to https://github.com/hashicorp/terraform/issues/12570#issuecomment-318414280 this restriction."
 }
 
+variable "loadbalancer_listener_priority" {
+  default = 1000
+  description = "The priority for the rule of the loadbalancer."
+}
+
 variable "loadbalancer_security_group_id" {
 description = "SecurityGroup of the loadbalancer to allow incoming traffic from it."
 }
