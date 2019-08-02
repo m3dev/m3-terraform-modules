@@ -75,7 +75,7 @@ EOF
 }
 
 variable "loadbalancer_listener_arns_count" {
-description = "Length of loadbalancer_listener_arns. This variable is required with current terraform due to https://github.com/hashicorp/terraform/issues/12570#issuecomment-318414280 this restriction."
+  description = "Length of loadbalancer_listener_arns. This variable is required with current terraform due to https://github.com/hashicorp/terraform/issues/12570#issuecomment-318414280 this restriction."
 }
 
 variable "loadbalancer_listener_priority" {
@@ -84,17 +84,17 @@ variable "loadbalancer_listener_priority" {
 }
 
 variable "loadbalancer_security_group_id" {
-description = "SecurityGroup of the loadbalancer to allow incoming traffic from it."
+  description = "SecurityGroup of the loadbalancer to allow incoming traffic from it."
 }
 
 variable "maintenance_security_group_id" {
-description = "SecurityGroup ID of the maintenance server (e.g. bastion server). This module allow access from this SG."
+  description = "SecurityGroup ID of the maintenance server (e.g. bastion server). This module allow access from this SG."
 }
 
 variable "maintenance_ingress_tcp_ports" {
-type        = list(string)
-default     = []
-description = <<EOF
+  type        = list(string)
+  default     = []
+  description = <<EOF
 List of allowed TCP ports from maintenance_security_group to containers.
 `target_container_port` are automatically added into this list, you do not need to specify it in here.
 EOF
@@ -102,97 +102,97 @@ EOF
 }
 
 variable "policy_arn" {
-# Currently cannot use list due to "value of 'count' cannot be computed" issue.
-description = "ARN of IAM policy to attatch to the ECS task"
+  # Currently cannot use list due to "value of 'count' cannot be computed" issue.
+  description = "ARN of IAM policy to attatch to the ECS task"
 }
 
 variable "task_execution_policy_arn" {
-default = ""
-description = "ARN of IAM policy to attatch to ESC task execution role"
+  default = ""
+  description = "ARN of IAM policy to attatch to ESC task execution role"
 }
 
 variable "cpu" {
-# cpu/memory conbinations in Fargate: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/AWS_Fargate.html
-description = "CPU resources to ECS task (includes all containers in the task). Actual vCPU core is cpu/1024."
+  # cpu/memory conbinations in Fargate: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/AWS_Fargate.html
+  description = "CPU resources to ECS task (includes all containers in the task). Actual vCPU core is cpu/1024."
 }
 
 variable "memory_mb" {
-# cpu/memory conbinations in Fargate: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/AWS_Fargate.html
-description = "Memory resources to ECS task in MB (includes all containers in the task)."
+  # cpu/memory conbinations in Fargate: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/AWS_Fargate.html
+  description = "Memory resources to ECS task in MB (includes all containers in the task)."
 }
 
 variable "container_definitions" {
-# - For Fargate, no need to specify cpu/memory for each container
-# - portMappings.hostPort can be zero
-description = "aws_ecs_task_definition.container_definitions, 'containerDefinitions' of the ECS task JSON"
+  # - For Fargate, no need to specify cpu/memory for each container
+  # - portMappings.hostPort can be zero
+  description = "aws_ecs_task_definition.container_definitions, 'containerDefinitions' of the ECS task JSON"
 }
 
 variable "ecs_deployment_minimum_healthy_percent" {
-description = "aws_ecs_service.deployment_minimum_healthy_percent (0 to 100)"
+  description = "aws_ecs_service.deployment_minimum_healthy_percent (0 to 100)"
 }
 
 variable "ecs_service_desired_count" {
-description = "aws_ecs_service.desired_count"
+  description = "aws_ecs_service.desired_count"
 }
 
 variable "volume_name" {
-default = "task_volume"
-description = "volume name for the ECS task."
+  default = "task_volume"
+  description = "volume name for the ECS task."
 }
 
 variable "target_container_name" {
-description = "LB target container, which receives traffic from LoadBalancer. Name of one of container in container_definitions."
+  description = "LB target container, which receives traffic from LoadBalancer. Name of one of container in container_definitions."
 }
 
 variable "target_container_port" {
-description = "LB target port. Specify portMappings.containerPort value of container_definition"
+  description = "LB target port. Specify portMappings.containerPort value of container_definition"
 }
 
 variable "target_group_protocol" {
-default = "HTTP"
-description = "Protocol between LB and container."
+  default = "HTTP"
+  description = "Protocol between LB and container."
 }
 
 variable "slow_start_sec" {
-default = 30
-description = "aws_alb_target_group.slow_start, LB don't so much traffic to the container during this period."
+  default = 30
+  description = "aws_alb_target_group.slow_start, LB don't so much traffic to the container during this period."
 }
 
 variable "deregistration_delay" {
-default = 30
-description = "aws_alb_target_group.deregistration_delay, duration of draining state [sec]"
+  default = 30
+  description = "aws_alb_target_group.deregistration_delay, duration of draining state [sec]"
 }
 
 variable "health_check_path" {
-description = "healthcheck path"
+  description = "healthcheck path"
 }
 
 variable "health_check_matcher" {
-default = "200"
-description = "healthcheck successful status code. Can use comma to specify multiple. Can use hypen to specify range."
+  default = "200"
+  description = "healthcheck successful status code. Can use comma to specify multiple. Can use hypen to specify range."
 }
 
 variable "health_check_grace_period_seconds" {
-description = "Do not stop unhealthy container duing this seconds from startup. Specify: Container start-up time + application start-up time + (healthcheck interval * healthy_threshold) + alpha"
+  description = "Do not stop unhealthy container duing this seconds from startup. Specify: Container start-up time + application start-up time + (healthcheck interval * healthy_threshold) + alpha"
 }
 
 variable "health_check_interval" {
-default = 10
-description = "healthcheck interval [sec]"
+  default = 10
+  description = "healthcheck interval [sec]"
 }
 
 variable "health_check_timeout" {
-default = 6
-description = "helthcheck timeout [sec]"
+  default = 6
+  description = "helthcheck timeout [sec]"
 }
 
 variable "unhealthy_threshold" {
-default = 3
-description = "Contignous healthcheck count to mark container as unhealthy"
+  default = 3
+  description = "Contignous healthcheck count to mark container as unhealthy"
 }
 
 variable "healthy_threshold" {
-default = 3
-description = "Contignous healthcheck count to mark container as healthy"
+  default = 3
+  description = "Contignous healthcheck count to mark container as healthy"
 }
 
