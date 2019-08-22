@@ -93,6 +93,16 @@ module "eu-west-3" {
   lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
   ipset_location = "${local.ipset_location}"
 }
+module "eu-north-1" {
+  aws_region = "eu-north-1"
+
+  source = "./regional"
+
+  enable = "${var.enable}"
+  envname = "${var.envname}"
+  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
+  ipset_location = "${local.ipset_location}"
+}
 module "ap-northeast-1" {
   aws_region = "ap-northeast-1"
 
