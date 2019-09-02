@@ -16,7 +16,7 @@ resource "aws_launch_template" "main" {
   # returns a single list item then leave it as-is and remove this TODO comment.
   vpc_security_group_ids = concat([aws_security_group.main.id], var.additional_security_groups)
 
-  user_data = base64encode(data.template_cloudinit_config.main.rendered)
+  user_data = data.template_cloudinit_config.main.rendered
 
   monitoring {
     enabled = var.ec2_enable_monitoring

@@ -1,7 +1,8 @@
 data "template_cloudinit_config" "main" {
   # https://github.com/hashicorp/terraform/issues/11488
+  # https://github.com/terraform-providers/terraform-provider-aws/issues/497
   gzip          = false
-  base64_encode = false
+  base64_encode = true
 
   part {
     content_type = "text/x-shellscript"
