@@ -8,11 +8,10 @@ variable "s3_bucket_name" {
   description = "S3 bucket name to store GuardDuty settings (e.g. trusted IP list)"
 }
 
-
 variable "trusted_ip_cidr_blocks" {
-  type = "list"
+  type        = list(string)
   description = "CIDR block notations of trusted IP address ranges"
-  default = []
+  default     = []
 }
 
 variable "guardduty_slack_webhook_url" {
