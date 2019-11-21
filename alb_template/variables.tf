@@ -37,7 +37,7 @@ variable "acm_certificate_alternative_names" {
 
 variable "ssl_policy" {
   type        = string
-  default     = "ELBSecurityPolicy-2016-08"
+  default     = ""
   description = "The name of the SSL Policy for the listener."
 }
 
