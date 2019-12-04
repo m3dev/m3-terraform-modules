@@ -127,6 +127,10 @@ variable "container_definitions" {
   description = "aws_ecs_task_definition.container_definitions, 'containerDefinitions' of the ECS task JSON"
 }
 
+variable "ecs_deployment_maximum_percent" {
+  description = "aws_ecs_service.ecs_deployment_maximum_percent (0 to 200)"
+}
+
 variable "ecs_deployment_minimum_healthy_percent" {
   description = "aws_ecs_service.deployment_minimum_healthy_percent (0 to 100)"
 }
