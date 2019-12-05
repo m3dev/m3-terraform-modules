@@ -128,10 +128,14 @@ variable "container_definitions" {
 }
 
 variable "ecs_deployment_maximum_percent" {
+  type = number
+  default = null
   description = "aws_ecs_service.ecs_deployment_maximum_percent (0 to 200)"
 }
 
 variable "ecs_deployment_minimum_healthy_percent" {
+  type = number
+  default = null
   description = "aws_ecs_service.deployment_minimum_healthy_percent (0 to 100)"
 }
 
