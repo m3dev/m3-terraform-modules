@@ -1,3 +1,7 @@
+output "lb_arn_suffix" {
+  value = aws_lb.main.arn_suffix
+}
+
 output "lb_zone_id" {
   value = aws_lb.main.zone_id
 }
