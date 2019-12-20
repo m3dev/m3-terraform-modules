@@ -35,6 +35,12 @@ variable "acm_certificate_alternative_names" {
   description = "Alternative names of the SSL certificate. If you use CNAME for the domain_name, you should set FQDN of CNAMEs to allow access from the CNAMEs."
 }
 
+variable "ssl_policy" {
+  type        = string
+  default     = ""
+  description = "The name of the SSL Policy for the listener."
+}
+
 variable "ingress_cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]

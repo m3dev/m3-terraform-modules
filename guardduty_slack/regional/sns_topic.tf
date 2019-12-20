@@ -26,7 +26,7 @@ resource "aws_sns_topic_policy" "notify" {
 data "template_file" "sns_topic_policy_notify" {
   template = "${data.aws_iam_policy_document.sns_topic_policy.json}"
 
-  vars {
+  vars = {
     topic_arn = "${aws_sns_topic.notify.arn}"
   }
 }

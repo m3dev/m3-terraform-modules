@@ -4,6 +4,7 @@ resource "aws_ecs_service" "main-non-awsvpc" {
   cluster = var.ecs_cluster_id
   name    = "${var.envname}-${var.application_name}"
 
+  deployment_maximum_percent         = var.ecs_deployment_maximum_percent
   deployment_minimum_healthy_percent = var.ecs_deployment_minimum_healthy_percent
   desired_count                      = var.ecs_service_desired_count
   launch_type                        = var.launch_type
@@ -25,6 +26,7 @@ resource "aws_ecs_service" "main-awsvpc" {
   cluster = var.ecs_cluster_id
   name    = "${var.envname}-${var.application_name}"
 
+  deployment_maximum_percent         = var.ecs_deployment_maximum_percent
   deployment_minimum_healthy_percent = var.ecs_deployment_minimum_healthy_percent
   desired_count                      = var.ecs_service_desired_count
   launch_type                        = var.launch_type
