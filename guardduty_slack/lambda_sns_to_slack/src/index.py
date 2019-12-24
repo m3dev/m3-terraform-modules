@@ -19,16 +19,20 @@ def process_event(event):
     event_detail = {}
     if 'detail' in event:
         event_detail = event['detail']
+    account = ""
+    if 'account' in event:
+        account = event['account']
     event_service = {}
     if 'service' in event_detail:
         event_service = event_detail['service']
     
-    message = "{title}\n{description}\nnseverity: {severity}\neventFirstSeen: {eventFirstSeen}\nregion: {region}".format(
+    message = "{title}\n{description}\nnseverity: {severity}\neventFirstSeen: {eventFirstSeen}\nregion: {region}\naccount: {account}".format(
         title = event_detail.get('title'),
         description = event_detail.get('description'),
         severity = event_detail.get('severity'),
         eventFirstSeen = event_service.get('eventFirstSeen'),
-        region = event.get('region')
+        region = event.get('region'),
+        account = account,
     )
     if event['detail']['severity'] > 3.9:
         requests.post(webhook_url, data = json.dumps({
