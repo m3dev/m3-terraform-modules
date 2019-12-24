@@ -27,10 +27,10 @@ module "$region" {
 
   source = "./regional"
 
-  enable = "\${var.enable}"
-  envname = "\${var.envname}"
-  lambda_notify_to_slack_arn = "\${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "\${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 EOS
 done

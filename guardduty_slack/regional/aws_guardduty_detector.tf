@@ -1,5 +1,5 @@
 resource "aws_guardduty_detector" "main" {
-  provider = "aws.regional"
+  provider = aws.regional
 
-  enable = "${var.enable}"
+  enable = var.enable
 }

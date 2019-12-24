@@ -8,158 +8,158 @@ module "us-east-1" {
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "us-east-2" {
   aws_region = "us-east-2"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "us-west-1" {
   aws_region = "us-west-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "us-west-2" {
   aws_region = "us-west-2"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ca-central-1" {
   aws_region = "ca-central-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "eu-central-1" {
   aws_region = "eu-central-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "eu-west-1" {
   aws_region = "eu-west-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "eu-west-2" {
   aws_region = "eu-west-2"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "eu-west-3" {
   aws_region = "eu-west-3"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "eu-north-1" {
   aws_region = "eu-north-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ap-northeast-1" {
   aws_region = "ap-northeast-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ap-northeast-2" {
   aws_region = "ap-northeast-2"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ap-southeast-1" {
   aws_region = "ap-southeast-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ap-southeast-2" {
   aws_region = "ap-southeast-2"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "ap-south-1" {
   aws_region = "ap-south-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
 module "sa-east-1" {
   aws_region = "sa-east-1"
 
   source = "./regional"
 
-  enable = "${var.enable}"
-  envname = "${var.envname}"
-  lambda_notify_to_slack_arn = "${module.lambda_sns_to_slack.lambda_arn}"
-  ipset_location = "${local.ipset_location}"
+  enable = var.enable
+  envname = var.envname
+  lambda_notify_to_slack_arn = module.lambda_sns_to_slack.lambda_arn
+  ipset_location = local.ipset_location
 }
