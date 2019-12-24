@@ -6,7 +6,7 @@ resource "aws_lambda_function" "lambda" {
   publish       = true
   function_name = var.basename
 
-  filename         = substr(data.archive_file.lambda.output_path, length(path.cwd) + 1, -1)
+  filename         = substr(data.archive_file.lambda.output_path, length(abspath(path.cwd)) + 1, -1)
   handler          = "index.lambda_hander"
   source_code_hash = data.archive_file.lambda.output_base64sha256
 
@@ -29,6 +29,6 @@ resource "aws_lambda_function" "lambda" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_dir  = "${path.module}/src"
-  output_path = "${path.module}/temp/${var.basename}-dist.zip"
+  source_dir  = "${abspath(path.module)}/src"
+  output_path = "${abspath(path.module)}/temp/${var.basename}-dist.zip"
 }
