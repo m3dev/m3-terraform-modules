@@ -10,7 +10,7 @@ variable "s3_bucket_name" {
 
 
 variable "trusted_ip_cidr_blocks" {
-  type = "list"
+  type = list(string)
   description = "CIDR block notations of trusted IP address ranges"
   default = []
 }
