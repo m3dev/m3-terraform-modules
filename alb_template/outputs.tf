@@ -17,6 +17,10 @@ output "default_target_group_arn" {
   value = aws_lb_target_group.default-target-group.arn
 }
 
+output "default_target_group_arn_suffix" {
+  value = aws_lb_target_group.default-target-group.arn_suffix
+}
+
 output "security_group_id" {
   value = aws_security_group.loadbalancer.id
 }
