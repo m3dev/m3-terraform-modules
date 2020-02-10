@@ -1,5 +1,7 @@
 # guardduty_slack
 
+Notification of GuardDuty for Slack.
+
 This module setups:
 
 - AWS GuardDuty
