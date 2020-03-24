@@ -10,11 +10,15 @@ variable "duration_alarm_ms" {
   description = "Milliseconds threshold to alarm too long lambda execution. 0 (default) to disable this alarm."
 }
 
-variable "max_invocations" {
+variable "invocations_max" {
   description = "Threshold to alarm too many invocations."
 }
 
-variable "max_invocations_window_seconds" {
+variable "invocations_min" {
+  description = "Threshold to alarm too many invocations."
+}
+
+variable "invocations_window_seconds" {
   default = 5 * 60
-  description = "Window (duration) to check max_invocations. Unit is [sec]."
+  description = "Window (duration) to check max,min_invocations. Unit is [sec]."
 }
