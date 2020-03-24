@@ -66,3 +66,47 @@ resource "aws_cloudwatch_metric_alarm" "lambda_duration" {
 
   alarm_actions = [ var.sns_arn ]
 }
+
+resource "aws_cloudwatch_metric_alarm" "lambda_invocations_max" {
+  alarm_name = "${var.function_name}-invocations-max"
+  alarm_description = "Lambda \"${var.function_name}\" too many invocations"
+
+  namespace = "AWS/Lambda"
+  metric_name = "Invocations"
+  statistic = "Sum"
+  period = var.invocations_window_seconds
+  evaluation_periods = "1"
+
+  treat_missing_data = "notBreaching"
+
+  comparison_operator = "GreaterThanThreshold"
+  threshold = var.invocations_max
+
+  dimensions = {
+    FunctionName = var.function_name
+  }
+
+  alarm_actions = [ var.sns_arn ]
+}
+
+resource "aws_cloudwatch_metric_alarm" "lambda_invocations_min" {
+  alarm_name = "${var.function_name}-invocations-min"
+  alarm_description = "Lambda \"${var.function_name}\" too few invocations"
+
+  namespace = "AWS/Lambda"
+  metric_name = "Invocations"
+  statistic = "Sum"
+  period = var.invocations_window_seconds
+  evaluation_periods = "1"
+
+  treat_missing_data = "notBreaching"
+
+  comparison_operator = "GreaterThanThreshold"
+  threshold = var.invocations_min
+
+  dimensions = {
+    FunctionName = var.function_name
+  }
+
+  alarm_actions = [ var.sns_arn ]
+}
