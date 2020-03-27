@@ -101,7 +101,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_invocations_min" {
 
   treat_missing_data = "notBreaching"
 
-  comparison_operator = "GreaterThanThreshold"
+  comparison_operator = "LessThanThreshold"
   threshold = var.invocations_min
 
   dimensions = {

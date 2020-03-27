@@ -15,6 +15,7 @@ variable "invocations_max" {
 }
 
 variable "invocations_min" {
+  default = 0
   description = "Threshold to alarm too many invocations."
 }
 
