@@ -8,6 +8,12 @@ variable "repository_tags" {
   default     = {}
 }
 
+variable "image_tag_mutability" {
+  description = "(Optional)The image tag mutability setting for the ECR repository"
+  type        = string
+  default     = "MUTABLE"
+}
+
 variable "untagged_images_expire_days" {
   default     = 14
   description = "Automatically delete untagged images (days after push)"
