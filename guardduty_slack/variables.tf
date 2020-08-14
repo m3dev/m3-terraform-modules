@@ -17,4 +17,18 @@ variable "trusted_ip_cidr_blocks" {
 
 variable "guardduty_slack_webhook_url" {
   description = "Slack webhook URL to post notification. Basically use same URL for all environments because no reason to separate security issue notification."
+  default = ""
 }
+
+variable "guardduty_finding_publishing_frequency" {
+  description = "Specifies the frequency of notifications sent for subsequent finding occurrences."
+  type        = string
+  default     = "SIX_HOURS"
+}
+
+variable "tags" {
+  description = "Tags for each component"
+  type        = map(string)
+  default     = {}
+}
+

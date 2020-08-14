@@ -1,5 +1,6 @@
 resource "aws_cloudwatch_event_rule" "guardduty_event_notify" {
   provider = aws.regional
+  tags     = var.tags
 
   name = "guardduty-event-notify"
   description = "GuardDuty event"
