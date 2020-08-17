@@ -19,3 +19,4 @@ variable "ipset_location" {}
 variable "guardduty_finding_publishing_frequency" {}
 
 variable "tags" {}
+

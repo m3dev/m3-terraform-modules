@@ -1,9 +1,9 @@
 resource "aws_iam_role" "lambda_role" {
   count = var.guardduty_slack_webhook_url == "" ? 0 : 1
-  name = var.basename
+  name  = var.basename
+  tags  = var.tags
 
   assume_role_policy = data.aws_iam_policy_document.lambda_edge_assume_role[0].json
-  tags = var.tags
 }
 
 data "aws_iam_policy_document" "lambda_edge_assume_role" {
