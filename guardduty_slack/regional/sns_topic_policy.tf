@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
     ]
 
     condition {
-      test = "StringEquals"
+      test     = "StringEquals"
       variable = "AWS:SourceOwner"
 
       values = [
@@ -43,7 +43,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
 
   # https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/resource-based-policies-cwe.html
   statement {
-    sid = "TrustCWEToPublishEventsToMyTopic"
+    sid    = "TrustCWEToPublishEventsToMyTopic"
     effect = "Allow"
 
     principals {

@@ -1,10 +1,14 @@
 resource "aws_iam_role" "lambda_role" {
-  name = var.basename
+  count = var.guardduty_slack_webhook_url == "" ? 0 : 1
+  name  = var.basename
+  tags  = var.tags
 
-  assume_role_policy = data.aws_iam_policy_document.lambda_edge_assume_role.json
+  assume_role_policy = data.aws_iam_policy_document.lambda_edge_assume_role[0].json
 }
 
 data "aws_iam_policy_document" "lambda_edge_assume_role" {
+  count = var.guardduty_slack_webhook_url == "" ? 0 : 1
+
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -16,16 +20,22 @@ data "aws_iam_policy_document" "lambda_edge_assume_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "viewer_request_lambda_execution" {
-  role       = aws_iam_role.lambda_role.name
+  count = var.guardduty_slack_webhook_url == "" ? 0 : 1
+
+  role       = aws_iam_role.lambda_role[0].name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 resource "aws_iam_role_policy_attachment" "viewer_request_cloudwatch_logs" {
-  role       = aws_iam_role.lambda_role.name
-  policy_arn = aws_iam_policy.lambda_cloudwatch_logs.arn
+  count = var.guardduty_slack_webhook_url == "" ? 0 : 1
+
+  role       = aws_iam_role.lambda_role[0].name
+  policy_arn = aws_iam_policy.lambda_cloudwatch_logs[0].arn
 }
 
 resource "aws_iam_policy" "lambda_cloudwatch_logs" {
+  count = var.guardduty_slack_webhook_url == "" ? 0 : 1
+
   name        = "${var.basename}-logs"
   path        = "/"
   description = "IAM policy for logging from a lambda"

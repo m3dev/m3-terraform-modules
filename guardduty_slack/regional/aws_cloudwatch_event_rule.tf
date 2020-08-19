@@ -1,7 +1,8 @@
 resource "aws_cloudwatch_event_rule" "guardduty_event_notify" {
   provider = aws.regional
+  tags     = var.tags
 
-  name = "guardduty-event-notify"
+  name        = "guardduty-event-notify"
   description = "GuardDuty event"
 
   # High (the value of the severity parameter in the GetFindings response falls within the 7.0 to 8.9 range)
