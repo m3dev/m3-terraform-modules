@@ -62,7 +62,7 @@ EOF
 }
 
 variable "loadbalancer_listener_arns" {
-  type = list(string)
+  type        = list(string)
   description = <<EOF
 List of listener ARN of ALB. All listeners must belong to same ALB.
 
@@ -79,7 +79,7 @@ variable "loadbalancer_listener_arns_count" {
 }
 
 variable "loadbalancer_listener_priority" {
-  default = 1000
+  default     = 1000
   description = "The priority for the rule of the loadbalancer."
 }
 
@@ -107,7 +107,7 @@ variable "policy_arn" {
 }
 
 variable "task_execution_policy_arn" {
-  default = ""
+  default     = ""
   description = "ARN of IAM policy to attatch to ESC task execution role"
 }
 
@@ -128,14 +128,14 @@ variable "container_definitions" {
 }
 
 variable "ecs_deployment_maximum_percent" {
-  type = number
-  default = null
+  type        = number
+  default     = null
   description = "aws_ecs_service.ecs_deployment_maximum_percent (0 to 200)"
 }
 
 variable "ecs_deployment_minimum_healthy_percent" {
-  type = number
-  default = null
+  type        = number
+  default     = null
   description = "aws_ecs_service.deployment_minimum_healthy_percent (0 to 100)"
 }
 
@@ -144,7 +144,7 @@ variable "ecs_service_desired_count" {
 }
 
 variable "volume_name" {
-  default = "task_volume"
+  default     = "task_volume"
   description = "volume name for the ECS task."
 }
 
@@ -157,17 +157,17 @@ variable "target_container_port" {
 }
 
 variable "target_group_protocol" {
-  default = "HTTP"
+  default     = "HTTP"
   description = "Protocol between LB and container."
 }
 
 variable "slow_start_sec" {
-  default = 30
+  default     = 30
   description = "aws_alb_target_group.slow_start, LB don't so much traffic to the container during this period."
 }
 
 variable "deregistration_delay" {
-  default = 30
+  default     = 30
   description = "aws_alb_target_group.deregistration_delay, duration of draining state [sec]"
 }
 
@@ -176,7 +176,7 @@ variable "health_check_path" {
 }
 
 variable "health_check_matcher" {
-  default = "200"
+  default     = "200"
   description = "healthcheck successful status code. Can use comma to specify multiple. Can use hypen to specify range."
 }
 
@@ -185,22 +185,22 @@ variable "health_check_grace_period_seconds" {
 }
 
 variable "health_check_interval" {
-  default = 10
+  default     = 10
   description = "healthcheck interval [sec]"
 }
 
 variable "health_check_timeout" {
-  default = 6
+  default     = 6
   description = "helthcheck timeout [sec]"
 }
 
 variable "unhealthy_threshold" {
-  default = 3
+  default     = 3
   description = "Contignous healthcheck count to mark container as unhealthy"
 }
 
 variable "healthy_threshold" {
-  default = 3
+  default     = 3
   description = "Contignous healthcheck count to mark container as healthy"
 }
 

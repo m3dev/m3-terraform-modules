@@ -6,7 +6,7 @@ variable "sns_arn" {
 }
 
 variable "duration_alarm_ms" {
-  default = 0
+  default     = 0
   description = "Milliseconds threshold to alarm too long lambda execution. 0 (default) to disable this alarm."
 }
 
@@ -15,11 +15,11 @@ variable "invocations_max" {
 }
 
 variable "invocations_min" {
-  default = 0
+  default     = 0
   description = "Threshold to alarm too many invocations."
 }
 
 variable "invocations_window_seconds" {
-  default = 5 * 60
+  default     = 5 * 60
   description = "Window (duration) to check max,min_invocations. Unit is [sec]."
 }

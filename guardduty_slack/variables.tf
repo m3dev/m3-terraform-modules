@@ -11,7 +11,7 @@ variable "s3_bucket_name" {
 
 variable "trusted_ip_cidr_blocks" {
   type        = list(string)
-  description = "CIDR block notations of trusted IP address ranges. (If you set an empty list, build without the gurdduty ipset. )"
+  description = "CIDR block notations of trusted IP address ranges. (If you set an empty list, build without the guardduty ipset. )"
   default     = []
 }
 
