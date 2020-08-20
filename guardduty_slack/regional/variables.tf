@@ -10,7 +10,7 @@ variable "is_enable_lambda_notify_to_slack" {
   type = bool
 }
 
-variable "is_enable_gurdduty_ipset" {
+variable "is_enable_guardduty_ipset" {
   type = bool
 }
 

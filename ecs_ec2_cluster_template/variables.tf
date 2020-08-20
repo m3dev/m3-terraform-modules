@@ -135,17 +135,17 @@ EOF
 }
 
 variable "autoscaling_scaledown_max" {
-  default = 0
+  default     = 0
   description = "Max instance count during autoscaling_scaledown_between_utc period."
 }
 
 variable "autoscaling_scaledown_desired_capacity" {
-  default = 0
+  default     = 0
   description = "Instance count during autoscaling_scaledown_between_utc period."
 }
 
 variable "autoscaling_scaledown_min" {
-  default = 0
+  default     = 0
   description = "Minimum instance count during autoscaling_scaledown_between_utc period."
 }
 

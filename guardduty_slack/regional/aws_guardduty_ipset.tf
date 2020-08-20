@@ -1,5 +1,5 @@
 resource "aws_guardduty_ipset" "MyIPSet" {
-  count    = var.is_enable_gurdduty_ipset == true ? 1 : 0
+  count    = var.is_enable_guardduty_ipset == true ? 1 : 0
   provider = aws.regional
 
   activate    = true
@@ -10,7 +10,7 @@ resource "aws_guardduty_ipset" "MyIPSet" {
 }
 
 resource "random_id" "hash" {
-  count = var.is_enable_gurdduty_ipset == true ? 1 : 0
+  count = var.is_enable_guardduty_ipset == true ? 1 : 0
 
   keepers = {
     # Generate a new id each time we switch to a new AMI id
