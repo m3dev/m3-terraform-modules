@@ -1,6 +1,6 @@
 # ecr_repository_template
 
-Create ECR repository with Lifecycle policy.
+ECR repository with Lifecycle policy.
 
 ## Variables
 

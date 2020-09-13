@@ -1,6 +1,6 @@
 # AWS ALB template
 
-Create ALB + SSL certificate.
+ALB + SSL certificate.
 
 This module also setup [DNS record](aws_route53_record.tf) and [aws_acm_certificate_validation](aws_acm_certificate_validation.tf) with DNS validation. So that this module requires Route53 hosted zone.
 

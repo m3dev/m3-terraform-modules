@@ -2,29 +2,43 @@
 
 ## What is this
 
-This module contains reusable terraform modules to reduce boilerplate code. Mainly for M3 company but anyone can use this under [LICENSE](./LICENSE).
+Reusable terraform modules. They are made for M3,Inc.'s internal use. But, anyone able to use them under [LICENSE](./LICENSE).
 
-For example, you can setup ECS cluster + AutoScailing with [ecs_ec2_cluster_template](./ecs_ec2_cluster_template), no need to write many terraform for every applications.
+## Modules
 
-## Documents
+**Setting up services**:
 
-Look `README.md` and `variables.tf` of each module to know it's detail. For example, [ecs_ec2_cluster_template/README.md](./ecs_ec2_cluster_template/README.md) and [ecs_ec2_cluster_template/variables.tf](./ecs_ec2_cluster_template/variables.tf).
+| Module | Description |
+| -------------: | :------------- |
+| [alb_template](./alb_template) | ALB + SSL certificate. |
+| [ecr_repository_template](./ecr_repository_template) | ECR repository with Lifecycle policy. |
+| [ecs_ec2_cluster_template](./ecs_ec2_cluster_template) | ECS nodes with EC2 + AutoScaling. |
+| [ecs_web_service_template](./ecs_web_service_template) | ECS service + ALB target/listener + Route53 record.|
 
-## How to use
+**Monitoring**:
 
-You can load this module from [GitHub registry](https://www.terraform.io/docs/modules/sources.html#github).
+| Module | Description |
+| -------------: | :------------- |
+| [guardduty_slack](./guardduty_slack) | GuardDuty alerts in Slack. |
+| [lambda_monitoring](./lambda_monitoring) | CloudWatch monitoring (alarm) for AWS lambda. |
 
-Only what you need to do is to write following:
+See `README.md` and `variables.tf` of each module for detail.
+
+## Install
+
+We can use modules with `module` blocks:
 
 ```
 module "esc_ec2_cluster_template" {
   source = "github.com/m3dev/m3-terraform-modules//ecs_ec2_cluster_template?ref=495ff58"
 
-  // ... set input variables, see `variables.tf` of the module.
+  // ... set input variables, see `variables.tf` of the mo.
 }
 ```
 
-Note that there are some key points in the `source` URL (see [official document for detail](https://www.terraform.io/docs/modules/sources.html)):
+Note:
 
-- Use double slash (`//`) to split repository URL and path from repository root
-- Use `ref` to specify tag/branch/revision to use
+- You have to use double slash (`//`) to split repository URL and path from repository root.
+- You should specify tag/branch/revision with `ref`, or your code might be broken when the `master` branch changed.
+
+See [the official document](https://www.terraform.io/docs/modules/sources.html)) for detail.
