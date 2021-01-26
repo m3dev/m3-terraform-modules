@@ -1,6 +1,6 @@
 # ecs_ec2_cluster_template
 
-Setup ECS nodes with EC2 + AutoScaling.
+ECS nodes with EC2 + AutoScaling.
 
 Also enable [SSM](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ec2-run-command.html) so that you can manage instance with it.
 

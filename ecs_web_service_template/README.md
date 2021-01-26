@@ -1,6 +1,6 @@
 # ecs_service_template
 
-Create ECS service + ALB target/listener + Route53 record.
+ECS service + ALB target/listener + Route53 record.
 
 ## Prerequisite
 
