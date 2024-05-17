@@ -19,3 +19,8 @@ variable "untagged_images_expire_days" {
   description = "Automatically delete untagged images (days after push)"
 }
 
+variable "image_scan_on_push" {
+  description = "(Optional)Indicates whether images are scanned after being pushed to the repository"
+  type        = bool
+  default     = true
+}
