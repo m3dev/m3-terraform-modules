@@ -1,4 +1,3 @@
-# Need to replace "${topic_arn}"
 data "aws_iam_policy_document" "sns_topic_policy" {
   policy_id = "__default_policy_ID"
 
@@ -58,7 +57,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
     ]
 
     resources = [
-      "$${topic_arn}",
+      aws_sns_topic.notify.arn,
     ]
   }
 }
