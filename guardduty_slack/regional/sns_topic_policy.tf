@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
     }
 
     resources = [
-      "$${topic_arn}",
+      aws_sns_topic.notify.arn,
     ]
 
     sid = "__default_statement_ID"
