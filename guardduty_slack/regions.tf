@@ -13,7 +13,7 @@ module "us-east-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "us-east-2" {
@@ -26,7 +26,7 @@ module "us-east-2" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "us-west-1" {
@@ -39,7 +39,7 @@ module "us-west-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "us-west-2" {
@@ -52,7 +52,7 @@ module "us-west-2" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ca-central-1" {
@@ -65,7 +65,7 @@ module "ca-central-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "eu-central-1" {
@@ -78,7 +78,7 @@ module "eu-central-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "eu-west-1" {
@@ -91,7 +91,7 @@ module "eu-west-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "eu-west-2" {
@@ -104,7 +104,7 @@ module "eu-west-2" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "eu-west-3" {
@@ -117,7 +117,7 @@ module "eu-west-3" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "eu-north-1" {
@@ -130,7 +130,7 @@ module "eu-north-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ap-northeast-1" {
@@ -143,7 +143,7 @@ module "ap-northeast-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ap-northeast-2" {
@@ -156,7 +156,7 @@ module "ap-northeast-2" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ap-southeast-1" {
@@ -169,7 +169,7 @@ module "ap-southeast-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ap-southeast-2" {
@@ -182,7 +182,7 @@ module "ap-southeast-2" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "ap-south-1" {
@@ -195,7 +195,7 @@ module "ap-south-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
 module "sa-east-1" {
@@ -208,6 +208,6 @@ module "sa-east-1" {
   lambda_notify_to_slack_arn             = module.lambda_sns_to_slack.lambda_arn
   is_enable_lambda_notify_to_slack       = var.guardduty_slack_webhook_url == "" ? false : true
   ipset_location                         = local.ipset_location
-  is_enable_gurdduty_ipset               = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
+  is_enable_guardduty_ipset              = length(var.trusted_ip_cidr_blocks) > 0 ? true : false
   guardduty_finding_publishing_frequency = var.guardduty_finding_publishing_frequency
 }
