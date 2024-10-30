@@ -4,7 +4,7 @@ locals {
 }
 
 resource "aws_s3_bucket_object" "trusted_ipset" {
-  acl    = "public-read"
+  acl    = "private"
   bucket = aws_s3_bucket.main.id
   key    = "ipset-${sha1(local.trusted_ipset_content)}"
 
